@@ -11,6 +11,7 @@
 <body>
 <svg class="svg-defs" aria-hidden="true"><defs>
     <symbol id="star" viewBox="0 0 40 40"><path d="M20 1c0 13-6 19-19 19 13 0 19 6 19 19 0-13 6-19 19-19C26 20 20 14 20 1Z" fill="none" stroke="currentColor" stroke-width="1"/></symbol>
+    <symbol id="arrow-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
     <symbol id="note" viewBox="0 0 24 24"><path d="M9 17V5l11-2v12M9 9l11-2" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="6" cy="18" rx="3" ry="2" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="17" cy="16" rx="3" ry="2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
@@ -61,14 +62,14 @@
       <div class="countdown" role="timer" aria-label="Tiempo restante para la fiesta"><div><strong id="days">—</strong><span>Días</span></div><i>:</i><div><strong id="hours">—</strong><span>Horas</span></div><i>:</i><div><strong id="minutes">—</strong><span>Minutos</span></div><i>:</i><div><strong id="seconds">—</strong><span>Segundos</span></div></div>
       <p id="event-status" role="status"></p>
       <button class="text-button" id="calendar-toggle" aria-expanded="false" aria-controls="calendar-options">Guardar la fecha <span aria-hidden="true">＋</span></button>
-      <div id="calendar-options" class="calendar-options" hidden><a id="google-calendar" target="_blank" rel="noopener noreferrer">Google Calendar ↗</a><a href="melani.ics" download>Apple / Outlook ↓</a></div>
+      <div id="calendar-options" class="calendar-options" hidden><a id="google-calendar" target="_blank" rel="noopener noreferrer">Google Calendar <svg class="external-icon" aria-hidden="true" focusable="false"><use href="#arrow-external"/></svg></a><a href="melani.ics" download>Apple / Outlook ↓</a></div>
     </section>
     <section class="venue-section card-section" id="lugar" aria-labelledby="venue-title">
       <svg class="section-icon" aria-hidden="true"><use href="#pin"/></svg>
       <h2 id="venue-title">La celebración</h2>
       <p class="venue-name">Salón Malva Negra</p>
       <p class="section-note">Te espero a las <strong>21:30 hs</strong><br>para compartir abrazos, baile y mucha alegría.</p>
-      <a class="button button-outline" href="https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+      <a class="button button-outline" href="https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6" target="_blank" rel="noopener noreferrer">Cómo llegar <svg class="external-icon" aria-hidden="true" focusable="false"><use href="#arrow-external"/></svg></a>
     </section>
     <section class="rsvp-section card-section" id="confirmar" aria-labelledby="rsvp-title">
       <div class="tiny-ornament" aria-hidden="true"><span></span><svg><use href="#star"/></svg><span></span></div>
@@ -100,7 +101,7 @@
             <p class="form-error" id="form-error" role="alert"></p><button type="submit" class="button button-navy">Revisar mis datos <svg><use href="#arrow"/></svg></button><p class="form-note">Revisá tus datos y continuá por WhatsApp.<br>Enviá el comprobante si corresponde abonar.</p>
           </form>
 </dialog>
-<dialog id="rsvp-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" data-close="rsvp-dialog" aria-label="Cerrar resumen">×</button><p class="eyebrow">Mis quince · Melani</p><h2 id="dialog-title">Un último paso</h2><p>Revisá el mensaje que vas a enviar.</p><pre id="message-preview"></pre><p class="dialog-note" id="receipt-note">Al abrir WhatsApp, adjuntá el comprobante y enviá el mensaje al 3541 680176.</p><a id="whatsapp-link" class="button button-navy" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span aria-hidden="true">↗</span></a><button class="text-button edit-guests" id="edit-guests" type="button">Corregir mis datos</button><p class="form-note">Abrir el chat todavía no confirma tu asistencia.</p></dialog>
-  <dialog id="music-dialog" aria-labelledby="music-title"><button class="dialog-close" type="button" data-close="music-dialog" aria-label="Cerrar música">×</button><p class="eyebrow">El sonido de esta noche</p><h2 id="music-title">Test Drive</h2><p>Un poquito de magia para acompañar la invitación.</p><p id="music-status" role="status"></p><div class="video-container" id="music-player"></div><a class="text-button" href="https://www.youtube.com/watch?v=IpPIK4T068s" target="_blank" rel="noopener noreferrer">Escuchar en YouTube ↗</a><p class="form-note">Podés pausar la música desde el reproductor.<br>Al cerrar esta ventana se detiene.</p></dialog>
+<dialog id="rsvp-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" data-close="rsvp-dialog" aria-label="Cerrar resumen">×</button><p class="eyebrow">Mis quince · Melani</p><h2 id="dialog-title">Un último paso</h2><p>Revisá el mensaje que vas a enviar.</p><pre id="message-preview"></pre><p class="dialog-note" id="receipt-note">Al abrir WhatsApp, adjuntá el comprobante y enviá el mensaje al 3541 680176.</p><a id="whatsapp-link" class="button button-navy" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <svg class="external-icon" aria-hidden="true" focusable="false"><use href="#arrow-external"/></svg></a><button class="text-button edit-guests" id="edit-guests" type="button">Corregir mis datos</button><p class="form-note">Abrir el chat todavía no confirma tu asistencia.</p></dialog>
+  <dialog id="music-dialog" aria-labelledby="music-title"><button class="dialog-close" type="button" data-close="music-dialog" aria-label="Cerrar música">×</button><p class="eyebrow">El sonido de esta noche</p><h2 id="music-title">Test Drive</h2><p>Un poquito de magia para acompañar la invitación.</p><p id="music-status" role="status"></p><div class="video-container" id="music-player"></div><a class="text-button" href="https://www.youtube.com/watch?v=IpPIK4T068s" target="_blank" rel="noopener noreferrer">Escuchar en YouTube <svg class="external-icon" aria-hidden="true" focusable="false"><use href="#arrow-external"/></svg></a><p class="form-note">Podés pausar la música desde el reproductor.<br>Al cerrar esta ventana se detiene.</p></dialog>
 
 </body></html>

@@ -1,6 +1,6 @@
 "use strict";
 const byId = id => document.getElementById(id);
-const event = Object.freeze({ name: "Los 15 de Melani", date: "2026-12-26T21:30:00-03:00", venue: "Salón Malva Negra", maps: "https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6", alias: "leandrososa.885", whatsapp: "5493541680176", price: 15000 });
+const event = Object.freeze({ name: "Los 15 de Melani", date: "2026-12-26T21:00:00-03:00", venue: "Salón Malva Negra", maps: "https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6", alias: "leandrososa.885", whatsapp: "5493541680176", price: 15000 });
 const money = value => "$" + value.toLocaleString("es-AR");
 const formatCount = (adults, children) => { const n = adults + children; return `${n} ${n === 1 ? "persona" : "personas"}`; };
 
@@ -18,21 +18,38 @@ byId("calendar-toggle").addEventListener("click", () => {
   byId("calendar-toggle").setAttribute("aria-expanded", String(open));
   byId("calendar-options").hidden = !open;
 });
-byId("google-calendar").href = "https://calendar.google.com/calendar/render?" + new URLSearchParams({ action: "TEMPLATE", text: event.name, dates: "20261227T003000Z/20261227T003000Z", details: `Celebramos los 15 de Melani. Cómo llegar: ${event.maps}`, location: event.venue, ctz: "America/Argentina/Buenos_Aires" });
+const calendarDate = new Date(event.date).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+byId("google-calendar").href = "https://calendar.google.com/calendar/render?" + new URLSearchParams({ action: "TEMPLATE", text: event.name, dates: `${calendarDate}/${calendarDate}`, details: `Celebramos los 15 de Melani. Cómo llegar: ${event.maps}`, location: event.venue, ctz: "America/Argentina/Buenos_Aires" });
 
-byId("copy-alias").addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(event.alias);
-    byId("copy-status").textContent = "¡Alias copiado! Ya podés pegarlo en tu banco.";
-    byId("copy-alias").querySelector("span").textContent = "Copiado";
-    setTimeout(() => { byId("copy-alias").querySelector("span").textContent = "Copiar"; }, 3500);
-  } catch {
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(byId("alias"));
-    selection.removeAllRanges(); selection.addRange(range);
-    byId("copy-status").textContent = "Alias seleccionado. Copialo con la opción Copiar de tu dispositivo.";
-  }
+function setupAliasCopy(buttonId, aliasId, statusId) {
+  const button = byId(buttonId), label = button.querySelector("span");
+  const originalLabel = label.textContent;
+  let resetLabel;
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(byId(aliasId).textContent.trim());
+      byId(statusId).textContent = "¡Alias copiado! Ya podés pegarlo en tu banco.";
+      label.textContent = "Copiado";
+      clearTimeout(resetLabel);
+      resetLabel = setTimeout(() => { label.textContent = originalLabel; }, 3500);
+    } catch {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(byId(aliasId));
+      selection.removeAllRanges(); selection.addRange(range);
+      byId(statusId).textContent = "Alias seleccionado. Copialo con la opción Copiar de tu dispositivo.";
+    }
+  });
+}
+setupAliasCopy("copy-alias", "alias", "copy-status");
+setupAliasCopy("copy-gift-alias", "gift-alias", "gift-copy-status");
+
+byId("motion-toggle").addEventListener("click", () => {
+  const paused = document.body.classList.toggle("motion-paused");
+  byId("motion-toggle").setAttribute("aria-pressed", String(paused));
+  const label = paused ? "Reanudar las mariposas" : "Pausar las mariposas";
+  byId("motion-toggle").setAttribute("aria-label", label);
+  byId("motion-toggle").title = label;
 });
 
 function getGuests() {

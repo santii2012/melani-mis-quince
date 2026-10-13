@@ -13,3 +13,34 @@ dialog{border:1px solid #bba78b;border-radius:5px;padding:38px;width:min(475px,c
 @media(max-width:359px){.hero{padding-inline:24px}.hero h1{font-size:90px}.hero-art{height:264px;width:240px}.hero-intro{font-size:7px}.personal-line{font-size:22px}.date-weekday,.date-month{font-size:13px}.card-section{padding-inline:25px}.countdown{gap:6px}.countdown>div{min-width:42px}.countdown strong{font-size:30px}.card-section h2{font-size:36px}.envelope-letter{inset:12px 18px}.envelope-letter b{font-size:37px}.total-row output{font-size:26px}.guest-row label{font-size:10px}}
 @media(max-height:650px){.cover-for{font-size:42px;margin-bottom:12px}.envelope{margin:32px auto 26px;width:290px;height:191px}.cover-date{margin-top:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Floating paper butterflies and soft relief, behind the invitation text. */
+.invitation-sheet{background:radial-gradient(ellipse at 50% 7%,#49678b35,transparent 27%),radial-gradient(ellipse at 5% 55%,#40577822,transparent 28%),radial-gradient(ellipse at 94% 87%,#52648620,transparent 25%),#142138;box-shadow:0 30px 90px #02071299,inset 12px 0 35px #040b172e,inset -12px 0 35px #040b172e}
+.invitation-sheet>section{position:relative;z-index:1}
+.butterfly-field{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;perspective:800px}
+.flying-butterfly{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:calc(var(--size)*.8);color:#c2d5ee;opacity:.38;filter:drop-shadow(5px 10px 5px #020711b3);animation:butterfly-flight var(--duration) ease-in-out var(--delay) infinite;transform-style:preserve-3d}
+.flying-butterfly:nth-child(3n){color:#dec594;opacity:.32}
+.flying-butterfly.distant{opacity:.18;filter:blur(.6px) drop-shadow(3px 6px 5px #02071180)}
+.flying-butterfly svg{display:block;width:100%;height:100%;overflow:visible;fill:currentColor}
+.wing{transform-origin:50px 40px;animation:wing-flutter 3.6s ease-in-out infinite;animation-delay:var(--delay)}
+.wing-right{animation-name:wing-flutter-right}
+.hero h1,.closing-signature{text-shadow:0 2px 0 #f4e9cf14,0 5px 6px #02071499,0 15px 25px #02071480}
+.card-section h2,.personal-line{text-shadow:0 3px 4px #020714b3,0 9px 20px #0207144d}
+.princess{filter:drop-shadow(7px 18px 13px #02071299)}
+.art-halo{background:radial-gradient(ellipse,#8aabd63b,transparent 67%)}
+.button-gold{box-shadow:inset 0 1px 0 #fff7de88,inset 0 -3px 0 #9b77484d,0 8px 20px #02071266}
+.button-outline{box-shadow:inset 0 1px 0 #fff7de12,0 6px 16px #02071240}
+.gift-section .tiny-ornament{margin-bottom:28px}
+.gift-alias{max-width:270px;margin:25px auto 0;padding:24px 12px 20px;border-block:1px solid var(--line)}
+.gift-alias strong{font-size:21px;letter-spacing:.4px;margin:10px 0 13px;overflow-wrap:anywhere;text-shadow:0 3px 8px #02071480}
+.gift-alias button{min-height:44px;padding:9px 23px;background:#dfc6930a}
+.gift-thanks{font:400 24px/1.6 var(--script);color:var(--gold);margin-top:22px}
+.motion-button{right:auto;left:24px}
+.motion-button[aria-pressed="true"]{opacity:.65}
+.motion-paused .flying-butterfly,.motion-paused .wing,.motion-paused .butterfly{animation-play-state:paused}
+@keyframes butterfly-flight{0%,100%{transform:translate3d(-50%,0,0) rotate(var(--tilt))}35%{transform:translate3d(calc(-50% + var(--sway)),-30px,24px) rotate(calc(var(--tilt) + 9deg))}70%{transform:translate3d(calc(-50% - var(--sway)),-62px,-12px) rotate(calc(var(--tilt) - 8deg))}}
+@keyframes wing-flutter{0%,100%{transform:perspective(180px) rotateY(-8deg)}50%{transform:perspective(180px) rotateY(58deg)}}
+@keyframes wing-flutter-right{0%,100%{transform:perspective(180px) rotateY(8deg)}50%{transform:perspective(180px) rotateY(-58deg)}}
+@media(max-width:700px){.motion-button{left:15px}.invitation-sheet{box-shadow:inset 8px 0 28px #040b1729,inset -8px 0 28px #040b1729}}
+@media(max-width:480px){.flying-butterfly{width:calc(var(--size)*.78);height:calc(var(--size)*.624);opacity:.3}.flying-butterfly:nth-child(3n){opacity:.27}.flying-butterfly.distant{opacity:.16}.gift-thanks{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.motion-button{display:none}.flying-butterfly{transform:translateX(-50%) rotate(var(--tilt))}}

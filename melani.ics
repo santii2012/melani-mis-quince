@@ -4,11 +4,12 @@ PRODID:-//Melani//Mis quince//ES
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:melani-xv-20261227T003000@invitation.local
-DTSTAMP:20261012T000000Z
-DTSTART:20261227T003000Z
+DTSTAMP:20261013T003536Z
+SEQUENCE:1
+DTSTART:20261227T000000Z
 SUMMARY:Los 15 de Melani
 LOCATION:Salón Malva Negra
-DESCRIPTION:Celebramos los 15 de Melani. 26 de diciembre de 2026\, 21:30 h
+DESCRIPTION:Celebramos los 15 de Melani. 26 de diciembre de 2026\, 21:00 h
  s.
 URL:https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6
 END:VEVENT

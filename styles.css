@@ -44,3 +44,9 @@ dialog{border:1px solid #bba78b;border-radius:5px;padding:38px;width:min(475px,c
 @media(max-width:700px){.motion-button{left:15px}.invitation-sheet{box-shadow:inset 8px 0 28px #040b1729,inset -8px 0 28px #040b1729}}
 @media(max-width:480px){.flying-butterfly{width:calc(var(--size)*.78);height:calc(var(--size)*.624);opacity:.3}.flying-butterfly:nth-child(3n){opacity:.27}.flying-butterfly.distant{opacity:.16}.gift-thanks{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.motion-button{display:none}.flying-butterfly{transform:translateX(-50%) rotate(var(--tilt))}}
+
+/* The name responds to a touch or hover without moving the surrounding layout. */
+.hero-name{display:inline-block;border:0;background:none;padding:0 .08em;margin:0 -.08em;border-radius:.12em;color:inherit;font:inherit;line-height:inherit;letter-spacing:inherit;text-shadow:inherit;transform:translateY(0) scale(1);transform-origin:50% 60%;touch-action:pan-y;transition:transform .4s cubic-bezier(.2,.75,.3,1),color .3s,text-shadow .3s}
+.hero-name.is-highlighted,.hero-name:focus-visible{transform:translateY(-2px) scale(1.09);color:#fff0c4;text-shadow:0 2px 0 #fff6df26,0 5px 8px #02071480,0 0 18px #dfc69366,0 0 38px #dfc69333}
+@media(hover:hover) and (pointer:fine){.hero-name:hover{transform:translateY(-2px) scale(1.09);color:#fff0c4;text-shadow:0 2px 0 #fff6df26,0 5px 8px #02071480,0 0 18px #dfc69366,0 0 38px #dfc69333}}
+@media(prefers-reduced-motion:reduce){.hero-name{transform:none!important}}

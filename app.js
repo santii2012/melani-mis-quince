@@ -4,6 +4,24 @@ const event = Object.freeze({ name: "Los 15 de Melani", date: "2026-12-26T21:00:
 const money = value => "$" + value.toLocaleString("es-AR");
 const formatCount = (adults, children) => { const n = adults + children; return `${n} ${n === 1 ? "persona" : "personas"}`; };
 
+const heroName = byId("highlight-name");
+let nameHighlightTimeout;
+function clearNameHighlight() {
+  clearTimeout(nameHighlightTimeout);
+  heroName.classList.remove("is-highlighted");
+}
+function highlightName() {
+  clearTimeout(nameHighlightTimeout);
+  heroName.classList.add("is-highlighted");
+  nameHighlightTimeout = setTimeout(clearNameHighlight, 1100);
+}
+heroName.addEventListener("pointerdown", e => {
+  if (e.isPrimary && e.button === 0) highlightName();
+}, { passive: true });
+heroName.addEventListener("pointercancel", clearNameHighlight, { passive: true });
+heroName.addEventListener("click", highlightName);
+heroName.addEventListener("blur", clearNameHighlight);
+
 function updateCountdown() {
   const remaining = Math.max(0, Math.floor((Date.parse(event.date) - Date.now()) / 1000));
   const parts = [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24, Math.floor(remaining / 60) % 60, remaining % 60];

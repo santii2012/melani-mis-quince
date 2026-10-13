@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142138"><meta name="description" content="Estás invitado a mis quince. Melani · 26 de diciembre de 2026 · Salón Malva Negra.">
+<title>Estás invitado · Los quince de Melani</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<svg class="svg-defs" aria-hidden="true"><defs>
+    <symbol id="star" viewBox="0 0 40 40"><path d="M20 1c0 13-6 19-19 19 13 0 19 6 19 19 0-13 6-19 19-19C26 20 20 14 20 1Z" fill="none" stroke="currentColor" stroke-width="1"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="note" viewBox="0 0 24 24"><path d="M9 17V5l11-2v12M9 9l11-2" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="6" cy="18" rx="3" ry="2" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="17" cy="16" rx="3" ry="2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="butterfly" viewBox="0 0 100 80"><path d="M49 43C28 0 0 7 8 31c3 12 18 17 31 18C11 37 13 73 33 69c9-2 12-10 16-21M51 43C72 0 100 7 92 31c-3 12-18 17-31 18 28-12 26 24 6 20-9-2-12-10-16-21" fill="currentColor"/><path d="M50 30v30M50 32l-7-12m7 12 7-12" stroke="currentColor" fill="none" stroke-width="2"/></symbol>
+  </defs></svg>
+<div class="cover" id="cover" hidden>
+  <div class="cover-inner">
+    <p class="cover-for">Para vos</p>
+    <p class="eyebrow">Tengo algo muy especial para compartir</p>
+    <button class="envelope" id="open-invitation" type="button" aria-label="Abrir la invitación de Melani">
+      <span class="envelope-lining"></span>
+      <span class="envelope-letter"><span>Mis quince</span><b>Melani</b></span>
+      <span class="envelope-front"></span><span class="envelope-flap"></span>
+      <span class="wax-seal"><span>M</span></span>
+    </button>
+    <p class="open-hint">Tocá el sello para abrir</p>
+    <p class="cover-date">26 · 12 · 2026</p>
+  </div>
+</div>
+<div id="invitation-content">
+  <button class="music-button" id="music-open" type="button" aria-label="Escuchar la música de la invitación" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#note"/></svg></button>
+  <main class="invitation-sheet" id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="tiny-ornament" aria-hidden="true"><span></span><svg><use href="#star"/></svg><span></span></div>
+      <p class="eyebrow hero-intro">Estás invitado a celebrar</p>
+      <h1 id="hero-title" tabindex="-1">Melani</h1>
+      <p class="quince">Mis quince años</p>
+      <div class="hero-art">
+        <div class="art-halo"></div>
+        <svg class="butterfly butterfly-one" aria-hidden="true"><use href="#butterfly"/></svg>
+        <svg class="butterfly butterfly-two" aria-hidden="true"><use href="#butterfly"/></svg>
+        <svg class="art-star star-one" aria-hidden="true"><use href="#star"/></svg>
+        <svg class="art-star star-two" aria-hidden="true"><use href="#star"/></svg>
+        <img class="princess" src="assets/princess-waving.gif" width="512" height="768" alt="Princesa saludando, con un vestido azul noche y una corona plateada" fetchpriority="high">
+      </div>
+      <p class="invitation-message">Hay momentos que se vuelven inolvidables<br class="desktop-break"> cuando los compartimos.</p>
+      <p class="personal-line">Y quiero compartir el mío con vos.</p>
+      <div class="date-keepsake" aria-label="Sábado 26 de diciembre de 2026, 21:30 horas">
+        <span class="date-weekday">Sábado</span><strong>26</strong><span class="date-month">Diciembre</span>
+        <span class="date-year">2026 · 21:30 hs</span>
+      </div>
+      <a class="continue-reading" href="#fecha" aria-label="Seguir leyendo la invitación"><span>Deslizá para descubrir más</span><span aria-hidden="true">⌄</span></a>
+    </section>
+    <section class="date-section card-section" id="fecha" aria-labelledby="date-title">
+      <div class="tiny-ornament" aria-hidden="true"><span></span><svg><use href="#butterfly"/></svg><span></span></div>
+      <h2 id="date-title">Falta poquito...</h2>
+      <p class="section-note">para vivir una noche que voy a recordar siempre.</p>
+      <div class="countdown" role="timer" aria-label="Tiempo restante para la fiesta"><div><strong id="days">—</strong><span>Días</span></div><i>:</i><div><strong id="hours">—</strong><span>Horas</span></div><i>:</i><div><strong id="minutes">—</strong><span>Minutos</span></div><i>:</i><div><strong id="seconds">—</strong><span>Segundos</span></div></div>
+      <p id="event-status" role="status"></p>
+      <button class="text-button" id="calendar-toggle" aria-expanded="false" aria-controls="calendar-options">Guardar la fecha <span aria-hidden="true">＋</span></button>
+      <div id="calendar-options" class="calendar-options" hidden><a id="google-calendar" target="_blank" rel="noopener noreferrer">Google Calendar ↗</a><a href="melani.ics" download>Apple / Outlook ↓</a></div>
+    </section>
+    <section class="venue-section card-section" id="lugar" aria-labelledby="venue-title">
+      <svg class="section-icon" aria-hidden="true"><use href="#pin"/></svg>
+      <h2 id="venue-title">La celebración</h2>
+      <p class="venue-name">Salón Malva Negra</p>
+      <p class="section-note">Te espero a las <strong>21:30 hs</strong><br>para compartir abrazos, baile y mucha alegría.</p>
+      <a class="button button-outline" href="https://maps.app.goo.gl/EmF2VvnEGyT7nSCq6" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="rsvp-section card-section" id="confirmar" aria-labelledby="rsvp-title">
+      <div class="tiny-ornament" aria-hidden="true"><span></span><svg><use href="#star"/></svg><span></span></div>
+      <h2 id="rsvp-title">¿Me acompañás?</h2>
+      <p class="section-note">Tu presencia va a hacer esta noche aún más especial.<br>Confirmá hasta el <strong>1 de diciembre de 2026.</strong></p>
+      <p class="ticket-info">Valor de la tarjeta: <strong>$15.000</strong><br><span>Los menores de 12 años no pagan.</span></p>
+      <details class="payment-details"><summary>Datos para la transferencia <span aria-hidden="true">＋</span></summary>
+        <div class="payment-content"><p>Realizá la transferencia y enviá el comprobante por WhatsApp junto con tu confirmación.</p>
+        <div class="alias-block"><span class="eyebrow">Alias</span><strong id="alias">leandrososa.885</strong><button id="copy-alias" type="button" aria-label="Copiar alias leandrososa.885"><span>Copiar</span></button></div>
+        <p class="copy-status" id="copy-status" role="status"></p></div>
+      </details>
+      <button class="button button-gold" id="open-rsvp" type="button" aria-haspopup="dialog">Confirmar mi asistencia <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+    </section>
+    <section class="closing card-section">
+      <svg class="closing-butterfly" aria-hidden="true"><use href="#butterfly"/></svg>
+      <p>No veo la hora de compartir<br>esta noche con vos.</p>
+      <p class="farewell">¡Te espero!</p>
+      <p class="closing-signature">Melani</p>
+      <div class="tiny-ornament" aria-hidden="true"><span></span><svg><use href="#star"/></svg><span></span></div>
+      <p class="closing-date">MIS QUINCE · 26.12.2026</p>
+    </section>
+  </main>
+</div>
+<dialog id="guest-dialog" aria-labelledby="guest-dialog-title"><button class="dialog-close" type="button" data-close="guest-dialog" aria-label="Cerrar confirmación">×</button><p class="eyebrow">Los quince de Melani</p><h2 id="guest-dialog-title">Confirmar mi asistencia</h2><p class="dialog-intro">Contame quiénes van a acompañarme.</p>
+<form id="rsvp-form"><label for="guest-name">Tu nombre y apellido</label><input id="guest-name" name="guest" type="text" autocomplete="name" placeholder="Escribí tu nombre completo" required minlength="2" maxlength="100">
+            <div class="guest-row"><div><label for="adults">12 años o más</label><span class="field-help">$15.000 por persona</span></div><div class="stepper"><button type="button" data-step="-1" data-for="adults" aria-label="Quitar una persona de 12 años o más">−</button><input id="adults" name="adults" aria-label="Personas de 12 años o más" type="number" min="0" max="100" step="1" value="1" required inputmode="numeric"><button type="button" data-step="1" data-for="adults" aria-label="Agregar una persona de 12 años o más">+</button></div></div>
+            <div class="guest-row"><div><label for="children">Menores de 12 años</label><span class="field-help">Sin cargo</span></div><div class="stepper"><button type="button" data-step="-1" data-for="children" aria-label="Quitar un menor de 12 años">−</button><input id="children" name="children" aria-label="Menores de 12 años" type="number" min="0" max="100" step="1" value="0" required inputmode="numeric"><button type="button" data-step="1" data-for="children" aria-label="Agregar un menor de 12 años">+</button></div></div>
+            <div class="total-row"><span>Total a transferir<small id="guest-summary">1 persona</small></span><output id="total" for="adults children" aria-live="polite">$15.000</output></div>
+            <p class="form-error" id="form-error" role="alert"></p><button type="submit" class="button button-navy">Revisar mis datos <svg><use href="#arrow"/></svg></button><p class="form-note">Revisá tus datos y continuá por WhatsApp.<br>Enviá el comprobante si corresponde abonar.</p>
+          </form>
+</dialog>
+<dialog id="rsvp-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" data-close="rsvp-dialog" aria-label="Cerrar resumen">×</button><p class="eyebrow">Mis quince · Melani</p><h2 id="dialog-title">Un último paso</h2><p>Revisá el mensaje que vas a enviar.</p><pre id="message-preview"></pre><p class="dialog-note" id="receipt-note">Al abrir WhatsApp, adjuntá el comprobante y enviá el mensaje al 3541 680176.</p><a id="whatsapp-link" class="button button-navy" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span aria-hidden="true">↗</span></a><button class="text-button edit-guests" id="edit-guests" type="button">Corregir mis datos</button><p class="form-note">Abrir el chat todavía no confirma tu asistencia.</p></dialog>
+  <dialog id="music-dialog" aria-labelledby="music-title"><button class="dialog-close" type="button" data-close="music-dialog" aria-label="Cerrar música">×</button><p class="eyebrow">El sonido de esta noche</p><h2 id="music-title">Test Drive</h2><p>Un poquito de magia para acompañar la invitación.</p><p id="music-status" role="status"></p><div class="video-container" id="music-player"></div><a class="text-button" href="https://www.youtube.com/watch?v=IpPIK4T068s" target="_blank" rel="noopener noreferrer">Escuchar en YouTube ↗</a><p class="form-note">Podés pausar la música desde el reproductor.<br>Al cerrar esta ventana se detiene.</p></dialog>
+
+</body></html>
